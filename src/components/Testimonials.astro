@@ -1,0 +1,164 @@
+---
+const testimonials = [
+	{
+		name: "Carlos Rodríguez",
+		role: "Dueño de Finca Lechera",
+		text: "Excelente trabajo con el tanque de almacenamiento. La calidad de la soldadura y los acabados son de primer nivel. El tanque ha funcionado perfectamente desde el primer día. Totalmente recomendado.",
+		stars: 5,
+	},
+	{
+		name: "María García",
+		role: "Propietaria de Restaurante",
+		text: "Los muebles industriales que nos fabricó transformaron completamente la imagen de nuestro restaurante. Mesas sólidas, hermosas y duraderas. Sus clientes siempre nos preguntan dónde los conseguimos.",
+		stars: 5,
+	},
+	{
+		name: "José Hernández",
+		role: "Constructor",
+		text: "Hemos trabajado juntos en múltiples proyectos de estructuras metálicas. Su trabajo es impecable, siempre cumple con los tiempos y la calidad es consistente. Un profesional de verdad.",
+		stars: 5,
+	},
+];
+---
+
+<section class="testimonials">
+	<div class="container">
+		<div class="section-header">
+			<span class="section-label">Testimonios</span>
+			<h2 class="section-title">Lo que Dicen <span class="accent-text">Mis Clientes</span></h2>
+			<p class="section-subtitle">
+				La satisfacción de mis clientes es mi mejor carta de presentación.
+			</p>
+		</div>
+
+		<div class="testimonials-grid">
+			{testimonials.map((testimonial, idx) => (
+				<div class="testimonial-card" style={`animation-delay: ${idx * 0.15}s`}>
+					<div class="testimonial-stars">
+						{Array(testimonial.stars).fill(0).map(() => (
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+							</svg>
+						))}
+					</div>
+					<p class="testimonial-text">"{testimonial.text}"</p>
+					<div class="testimonial-author">
+						<div class="author-avatar">
+							{testimonial.name.charAt(0)}
+						</div>
+						<div>
+							<p class="author-name">{testimonial.name}</p>
+							<p class="author-role">{testimonial.role}</p>
+						</div>
+					</div>
+					<div class="quote-mark">
+						<svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.05">
+							<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+						</svg>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonials {
+		padding: var(--section-padding);
+		background: var(--color-bg-secondary);
+		position: relative;
+	}
+
+	.testimonials::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-border-light), transparent);
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.testimonial-card {
+		background: var(--color-bg-card);
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+		padding: 2rem;
+		position: relative;
+		overflow: hidden;
+		transition: all var(--transition-normal);
+	}
+
+	.testimonial-card:hover {
+		border-color: rgba(232, 130, 12, 0.3);
+		transform: translateY(-3px);
+	}
+
+	.testimonial-stars {
+		display: flex;
+		gap: 0.2rem;
+		color: var(--color-accent);
+		margin-bottom: 1.2rem;
+	}
+
+	.testimonial-text {
+		font-size: 0.92rem;
+		color: var(--color-text-secondary);
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+		font-style: italic;
+	}
+
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
+	.author-avatar {
+		width: 44px;
+		height: 44px;
+		background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 800;
+		font-size: 1.1rem;
+		color: #000;
+	}
+
+	.author-name {
+		font-weight: 700;
+		font-size: 0.9rem;
+	}
+
+	.author-role {
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+	}
+
+	.quote-mark {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+
+	@media (max-width: 1024px) {
+		.testimonials-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.testimonials-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

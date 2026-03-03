@@ -1,0 +1,223 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+	{ label: "Inicio", href: "#inicio" },
+	{ label: "Sobre Mí", href: "#sobre-mi" },
+	{ label: "Servicios", href: "#servicios" },
+	{ label: "Proyectos", href: "#proyectos" },
+	{ label: "Contacto", href: "#contacto" },
+];
+
+const services = [
+	"Soldadura TIG/MIG",
+	"Tanques Industriales",
+	"Estructuras Metálicas",
+	"Mobiliario en Metal",
+	"Maquinaria a Medida",
+	"Pulido y Acabados",
+];
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<a href="#inicio" class="footer-logo">
+					<svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M20 4L4 20L20 36L36 20L20 4Z" stroke="currentColor" stroke-width="2" fill="none"/>
+						<path d="M12 20L20 12L28 20L20 28L12 20Z" fill="currentColor" opacity="0.3"/>
+						<circle cx="20" cy="20" r="4" fill="currentColor"/>
+					</svg>
+					<span class="logo-text">METAL<span class="accent-text">PRO</span></span>
+				</a>
+				<p class="footer-description">
+					Más de 15 años de experiencia en soldadura y fabricación metálica 
+					profesional. Calidad y compromiso en cada proyecto.
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<h4 class="footer-title">Enlaces</h4>
+				<ul>
+					{quickLinks.map((link) => (
+						<li><a href={link.href}>{link.label}</a></li>
+					))}
+				</ul>
+			</div>
+
+			<div class="footer-services">
+				<h4 class="footer-title">Servicios</h4>
+				<ul>
+					{services.map((service) => (
+						<li><span>{service}</span></li>
+					))}
+				</ul>
+			</div>
+
+			<div class="footer-cta">
+				<h4 class="footer-title">¿Listo para empezar?</h4>
+				<p class="footer-cta-text">
+					Contáctame hoy y convirtamos tu idea en una realidad de metal.
+				</p>
+				<a href="#contacto" class="btn btn-primary btn-sm">Cotizar Ahora</a>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p>&copy; {currentYear} MetalPro. Todos los derechos reservados.</p>
+			<p class="footer-credits">Soldadura & Fabricación Metálica Profesional</p>
+		</div>
+	</div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/50000000000" target="_blank" class="whatsapp-float" aria-label="Chat en WhatsApp">
+	<svg viewBox="0 0 24 24" fill="currentColor">
+		<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+	</svg>
+</a>
+
+<style>
+	.footer {
+		background: var(--color-bg-secondary);
+		padding: 4rem 0 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.footer-grid {
+		display: grid;
+		grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+		gap: 3rem;
+		padding-bottom: 3rem;
+	}
+
+	.footer-logo {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 1rem;
+	}
+
+	.logo-icon {
+		width: 32px;
+		height: 32px;
+		color: var(--color-accent);
+	}
+
+	.logo-text {
+		font-family: var(--font-heading);
+		font-size: 1.4rem;
+		letter-spacing: 3px;
+	}
+
+	.footer-description {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+
+	.footer-title {
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		margin-bottom: 1.2rem;
+		color: var(--color-text-primary);
+	}
+
+	.footer-links ul li,
+	.footer-services ul li {
+		margin-bottom: 0.6rem;
+	}
+
+	.footer-links a,
+	.footer-services span {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+		transition: color var(--transition-fast);
+	}
+
+	.footer-links a:hover {
+		color: var(--color-accent);
+	}
+
+	.footer-cta-text {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		margin-bottom: 1.2rem;
+	}
+
+	.footer-bottom {
+		padding: 1.5rem 0;
+		border-top: 1px solid var(--color-border);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.footer-credits {
+		color: var(--color-accent);
+		opacity: 0.6;
+	}
+
+	/* WhatsApp Float */
+	.whatsapp-float {
+		position: fixed;
+		bottom: 2rem;
+		right: 2rem;
+		width: 56px;
+		height: 56px;
+		background: #25D366;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		z-index: 999;
+		box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+		transition: all var(--transition-normal);
+		animation: pulseWhatsapp 2s ease-in-out infinite;
+	}
+
+	.whatsapp-float svg {
+		width: 28px;
+		height: 28px;
+	}
+
+	.whatsapp-float:hover {
+		transform: scale(1.1);
+		box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+	}
+
+	@keyframes pulseWhatsapp {
+		0%, 100% {
+			box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+		}
+		50% {
+			box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.footer-grid {
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			gap: 0.5rem;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.footer-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
